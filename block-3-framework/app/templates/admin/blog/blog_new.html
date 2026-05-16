@@ -1,0 +1,68 @@
+
+
+
+{% extends 'partials/index.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="blog-form-page">
+    <div class="blog-form-card">
+
+        <h2>Create New Post</h2>
+
+        <form method="POST"
+              action="{{ url_for('blog_admin.blog_new') }}"
+              enctype="multipart/form-data"
+              class="form"
+              novalidate>
+
+            {{ form.hidden_tag() }}
+
+
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class="form-control") }}
+
+                {% for error in form.title.errors %}
+                    <small class="form-error">{{ error }}</small>
+                {% endfor %}
+            </div>
+
+
+            <div class="form-group">
+                {{ form.description.label }}
+                {{ form.description(class="ckeditor form-control", rows="6") }}
+
+                {% for error in form.description.errors %}
+                    <small class="form-error">{{ error }}</small>
+                {% endfor %}
+            </div>
+
+
+            <div class="form-group">
+                {{ form.image.label }}
+                {{ form.image(class="form-control") }}
+                
+                {% for error in form.image.errors %}
+                    <small class="form-error">{{ error }}</small>
+                {% endfor %}
+            </div>
+
+
+            <div class="form-actions">
+                {{ form.submit(class="btn") }}
+                <a href="{{ url_for('blog_admin.blog_list') }}" class="btn btn-danger">
+                    Back
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+
+
+{% extends 'partials/index.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="blog-form-page">
+    <div class="blog-form-card">
+        <h2>Edit Article</h2>
+
+        <form method="POST" enctype="multipart/form-data" novalidate>
+
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class="input") }}
+
+                {% for error in form.title.errors %}
+                    <small class="error">{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.description.label }}
+                {{ form.description(class='ckeditor') }}
+
+                {% for error in form.description.errors %}
+                    <small class="error">{{ error }}</small>
+                {% endfor %}
+                
+            </div>
+
+            <div class="form-group">
+                {{ form.image.label }}
+                {{ form.image(class="input") }}
+
+                {% if post.image %}
+                    <p>Current image: 
+                        <img src="{{ url_for('static', filename='uploads/blog/' ~ post.image) }}" height="80" alt="image blog">
+                    </p>
+                {% endif %}
+
+                {% for error in form.image.errors %}
+                    <small class="form-error">{{ error }}</small>
+                {% endfor %}
+            </div>
+
+            <div class="blog-edit-actions">
+                {{ form.submit(class="btn") }}
+                <a href="{{ url_for('blog.blog') }}" class="btn btn-danger">Back</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}

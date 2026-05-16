@@ -1,0 +1,51 @@
+
+
+<header>
+    <div class="container flex-column flex-center">
+
+        <p class="logo">
+            <a href="{{ url_for('home.home') }}">
+                <img src="{{ url_for('static', filename='img/logo_web.jpeg') }}" alt="log_web">
+            </a>
+        </p>
+
+        <!-- js pour le burger -->
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- nav-bar le menu -->
+        <nav>
+            <a href="{{ url_for('home.home') }}">HOME</a>
+            <a href="{{ url_for('pages.pages') }}">ABOUT</a>
+            <a href="{{ url_for('portfolio.portfolio') }}">PORTFOLIO</a>
+            <a href="{{ url_for('blog.blog') }}">BLOG</a>
+            <a href="{{ url_for('contact.contact') }}">CONTACT</a>
+        </nav>
+        
+        <div class="header-login">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}">Login</a>
+            {% endif %}
+        </div>
+
+        <div class="header-login">
+            {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                <a href="{{ url_for('admin.admin_dashboard') }}">Panel Admin</a>
+            {% endif %}
+        </div>
+
+        <div class="header-login">
+            {% if current_user.is_authenticated or current_user.role == 'admin' %}
+                <a href="{{ url_for('user.profile') }}">Profile</a>
+            {% endif %}
+        </div>
+       
+    </div>
+</header>
+
+   

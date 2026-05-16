@@ -1,0 +1,153 @@
+
+
+
+{% extends "partials/index.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+
+<style>
+
+.hero {
+    height: 60vh;
+    background: url('{{ url_for("static", filename="img/branding_bg.jpeg") }}') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(0,0,0,0.5);
+    padding: 0 20px;
+}
+
+
+
+.service-section {
+    padding: 80px 0;
+}
+
+.service-section p {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.cta-section {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+    <div>
+        <h1>Branding Design Services</h1>
+        <p>We build powerful identities for modern brands.</p>
+    </div>
+</section>
+
+
+<section class="service-section">
+    <div class="container text-center">
+        <h2>About This Service</h2>
+        <p>
+            Crafting unique, emotional and consistent visual identities that connect with your audience.
+            Logos, color palettes, typography systems and full branding kits.
+        </p>
+    </div>
+</section>
+
+
+<section class="service-section">
+    <div class="container">
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h4>Logo Design</h4>
+                <p>Clean, memorable logo designs aligned with your brand values.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖌️</div>
+                <h4>Visual Identity</h4>
+                <p>Colors, typography, shapes and a full branding system.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h4>Brand Guidelines</h4>
+                <p>A professional downloadable PDF guide for your brand usage.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="service-section">
+    <div class="container text-center">
+        <h2>Recent Projects</h2>
+
+        <div class="projects-grid">
+            <a href="{{ url_for('portfolio.portfolio_project', project_id=1) }}">
+                <img src="{{ url_for('static', filename='img/photo_ordi.jpg') }}" class="portfolio-img">
+            </a>
+
+            <a href="{{ url_for('portfolio.portfolio_project', project_id=1) }}">
+                <img src="{{ url_for('static', filename='img/photo_ordi.jpg') }}" class="portfolio-img">
+            </a>
+
+            <a href="{{ url_for('portfolio.portfolio_project', project_id=1) }}">
+                <img src="{{ url_for('static', filename='img/photo_ordi.jpg') }}" class="portfolio-img">
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="cta-section">
+    <h2>Start Your Brand Transformation</h2>
+    <p>Let's build something unique for your business.</p>
+
+    <a href="mailto:987frisk.agency@gmail.com" class="btn">
+        Contact Us
+    </a>
+</section>
+
+{% endblock %}

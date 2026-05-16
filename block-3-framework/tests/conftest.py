@@ -1,0 +1,110 @@
+
+
+import pytest
+from app import create_app
+from app.extensions import db as _db
+from app.models.user import User
+from app.models.post import Post
+
+from config import TestConfig
+import uuid
+
+
+""" les fixtures sont methodes global , methodes que on peut utiliser seulement en l'appeler , sans importer """
+@pytest.fixture
+def login(client):
+
+    def do_login(user):
+        with client.session_transaction() as sess:
+            sess["_user_id"] = str(user.id)
+            sess["_fresh"] = True
+
+    return do_login
+
+
+
+
+@pytest.fixture(autouse=True)
+def reset_login_state(app):
+    with app.app_context():
+        from flask import g
+        g.pop('_login_user', None)
+    yield
+    with app.app_context():
+        from flask import g
+        g.pop('_login_user', None)
+
+
+
+# Fixture de la app
+@pytest.fixture(scope="session")
+def app():
+    app = create_app(TestConfig)
+    
+    with app.app_context():
+        _db.create_all()  # Creer tables in memory
+        yield app
+        _db.session.remove()
+        _db.drop_all()  # Nettoyer la DB au final
+
+
+
+# Fixture du client Flask pour faire la request
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
+
+# Fixture de database (trasnsaccion pour test) quand on modif la database 
+@pytest.fixture(scope="function")
+def db(app):
+
+    _db.session.begin_nested()
+
+    yield _db
+
+    _db.session.rollback()
+
+
+# Fixture user, role=user
+# test routes admin
+@pytest.fixture
+def user(db):
+    unique_name = f"testuser_{uuid.uuid4().hex}"
+
+    u = User(username=unique_name)
+    u.set_password("1234")
+
+    db.session.add(u)
+    db.session.commit()
+
+    return u
+
+
+
+# Fixture pour un post de test
+@pytest.fixture
+def post(db, user):
+    p = Post(title="Test Post", description="testing pour post", author=user)
+    db.session.add(p)
+    db.session.commit()
+    return p
+
+
+
+@pytest.fixture
+def admin_user(db):
+
+    unique_name = f"admin_{uuid.uuid4().hex}"
+
+    u = User(
+        username=unique_name,
+        role="admin"
+    )
+
+    u.set_password("1234")
+
+    db.session.add(u)
+    db.session.commit()
+
+    return u

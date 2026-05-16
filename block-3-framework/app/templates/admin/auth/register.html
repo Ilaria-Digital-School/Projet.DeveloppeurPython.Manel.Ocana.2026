@@ -1,0 +1,54 @@
+
+
+{% extends "partials/index.html" %}
+
+
+{% block content %}
+
+<section class="login-section">
+    <div class="login-card">
+
+        <h2 class="text-center">Sign in</h2>
+
+        <form method="POST" class="login-form flex-column">
+
+            {{ form.hidden_tag() }}
+
+            {{ form.username(class="input", placeholder="Username") }}
+            {% for error in form.username.errors %}
+                <small class="form-error">{{ error }}</small>
+            {% endfor %}
+
+            {{ form.password(class="input", placeholder="Password") }}
+            {% for error in form.password.errors %}
+                <small class="form-error">{{ error }}</small>
+            {% endfor %}
+
+            {{ form.confirm_password(class="input", placeholder="Confirm Password") }}
+            {% for error in form.confirm_password.errors %}
+                <small class="form-error">{{ error }}</small>
+            {% endfor %}
+
+            {{ form.submit(class="btn w-100") }}
+
+        </form>
+        
+        <a href="{{ url_for('auth.login') }}">U are one acount? login</a>
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+
+    </div>
+</section>
+
+
+{% endblock %}

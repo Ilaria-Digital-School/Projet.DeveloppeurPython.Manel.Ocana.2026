@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- metadonnées pour google -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="index - home, du web">
+
+    <!-- seo pour google -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Manel Ocana">
+
+    <!-- pour partager le link -->
+    <meta property="og:title" content="Home frisk agency">
+    <meta property="og:description" content="the home, with all contents">
+    <meta property="og:image" content="image.webp">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="favicon.ico">
+
+    <!-- pour mobile -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ameillorer perfonmance de fontaines externes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- eviter contenu repeté -->
+    <link rel="canonical" href="https://manelocana.github.io/Projet_block_1_frontend/">
+
+
+    <title>Home - Frisk Agency</title>
+
+
+    <!-- preload pour recurses css-->
+    <!-- <link rel="preload" href="style.css" as="style"> -->
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+
+<body>
+
+
+<header>
+    <div class="container flex-column">
+
+        <p class="logo">
+            <a href="index.html">
+                <img src="img/logo_web.webp" alt="logo_web">
+            </a>
+        </p>
+        
+        <!-- barre navigation -->
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="templates/pages.html">ABOUT</a>
+            <a href="templates/portfolio.html">PORTFOLIO</a>
+            <a href="templates/blog.html">BLOG</a>
+            <a href="templates/contact.html">CONTACT</a>
+        </nav>
+        
+        <div class="header-login">
+            <!-- login faux, y a pas backend -->
+            <a href="templates/login.html">Login</a>
+        </div>
+
+        <div class="search">
+            <!-- mailto ouvre la app de email -->
+            <a href="mailto:987frisk.agency@mail.com" class="btn">WORK WITH ME</a>
+        </div>
+       
+    </div>
+</header>
+
+
+<main>
+
+<!-- Hero - image principal -->
+<section class="hero-home">
+    <img src="img/home_hero_camera.webp" alt="camera_home">
+    
+    <div class="container">
+        <h1>WE MAKE CREATIVE THINGS EVERYDAY</h1>
+        <p>We are a digital agency that creates immersive and engaging user experiences</p>
+        <a href="templates/portfolio.html" class="btn">VIEW OUR WORKS</a>
+    </div>
+</section>
+
+<!-- Banner -->
+<section class="banner">
+    <div class="container">
+        <h2 class="visually-hidden">Address</h2>
+        <address>
+            27 Division St, New York,<br>NY 10002, USA<br>
+            +1800 123 654<br><br>
+            <a href="mailto:987frisk.agency@gmail.com">987frisk.agency@gmail.com</a>
+        </address>
+    </div>
+    <p class="slogan-flexibility">UNPARALLELED FLEXIBILITY * WE GIVE UNPARALLELED FIELD</p>
+</section>
+
+<!-- Cards -->
+<section class="cards">
+    <h2>WHAT WE CAN DO FOR OUR CLIENTS</h2>
+    <div class="container cards-2">
+        <div class="card card_desing">
+            <h3>Branding Design</h3>
+            <a href="templates/portfolio.html" class="btn">VIEW DETAILS</a>
+        </div>
+        <div class="card card_develope">
+            <h3>AlbumPhoto Development</h3>
+            <a href="templates/portfolio.html" class="btn">VIEW DETAILS</a>
+        </div>
+        <div class="card card_modelling">
+            <h3>Illustration Modelling</h3>
+            <a href="templates/portfolio.html" class="btn">VIEW DETAILS</a>
+        </div>
+        <div class="card card_marketing">
+            <h3>Digital Marketing</h3>
+            <a href="templates/portfolio.html" class="btn">VIEW DETAILS</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+    <div class="container">
+        <img src="img/paisage1.webp" alt="services img">
+        <div class="container_del_container">
+            <h2>WE OFFER A WIDE RANGE OF BRAND SERVICES</h2>
+            <p>We are a creative agency working with brands, building insightful strategies, creating unique designs and crafting value</p>
+            <p class="services_list">
+                branding<br>
+                development<br>
+                advertising<br>
+                marketing
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects scroll -->
+<section id="img_scroll">
+    <div class="container">
+        <h2>DISCOVER OUR SELECTED PROJECTS</h2>
+    </div>
+
+    <div class="scroll_container">
+        <a href="templates/portfolio/projects/portfolio_project.html"><img src="img/animals_fox.webp" alt="photo project"></a>
+        <a href="templates/portfolio/projects/portfolio_project.html"><img src="img/paisage1.webp" alt="photo project"></a>
+        <a href="templates/portfolio/projects/portfolio_project.html"><img src="img/animals_lion.webp" alt="photo project"></a>
+    </div>
+</section>
+
+<!-- Events -->
+<section class="events flex-column">
+    <div class="container">
+        <hr>
+        <h2>2025</h2>
+        <h3>New York Design Week</h3>
+        <p>We bring to life the most complex projects, specialize</p>
+        <h4>MAIN DEVELOPER</h4>
+
+        <hr>
+        <h2>2024</h2>
+        <h3>Alabama Design Week</h3>
+        <p>We bring to life the most complex projects, specialize</p>
+        <h4>ANIMATOR</h4>
+
+        <hr>
+        <h2>2021</h2>
+        <h3>Best Web Flow</h3>
+        <p>We bring to life the most complex projects, specialize</p>
+        <h4>DEVELOPER</h4>
+
+        <hr>
+        <h2>2020</h2>
+        <h3>Berlin Interactive Award</h3>
+        <p>We bring to life the most complex projects, specialize</p>
+        <h4>BEST INNOVATIONS</h4>
+        <hr>
+    </div>
+</section>
+
+<!-- Blog Cards -->
+<section class="cards">
+    <h2>Read Our Articles and News</h2>
+    <div class="container cards-3">
+        <!-- on lance les images del fond de la card, avec css directement comme background-img -->
+        <div class="card" style="background-image: url('img/blog1.webp');">
+            <h3>Title Post 1</h3>
+            <a href="templates/blog.html" class="btn">READ MORE</a>
+        </div>
+        <div class="card" style="background-image: url('img/blog2.webp');">
+            <h3>Title Post 2</h3>
+            <a href="templates/blog.html" class="btn">READ MORE</a>
+        </div>
+        <div class="card" style="background-image: url('img/blog3.webp');">
+            <h3>Title Post 3</h3>
+            <a href="templates/blog.html" class="btn">READ MORE</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section id="lets_create">
+    <div class="container">
+        <h2>Let's Create Something Great</h2>
+        <p>We shift your from today's reality to tomorrow's potential, ensuring.</p>
+        <a href="mailto:987frisk.agency@mail.com" class="btn">LET'S TALK WITH US</a>
+    </div>
+</section>
+
+</main>
+
+<!-- footer - pie de page -->
+<footer id="footer">
+    <div class="container">
+        <div class="container_left">
+            <h2>
+                Get valuable strategy, culture and brand insights straight to your inbox
+            </h2>
+
+            <h3>Contact</h3>
+            <address>
+                27 Division St, New York,<br>
+                NY 10002, Usa<br>
+                <br>
+                +1800123654987<br>
+                <a href="mailto:987frisk.agency@mail.com">987frisk.agency@mail.com</a>
+            </address>
+        </div>
+
+        <div class="container_right">
+            <h4>Links</h4>
+            <nav>
+                <a href="templates/pages.html">About</a>
+                <a href="templates/portfolio.html">Portfolio</a>
+                <a href="templates/blog.html">Testimonials</a>
+                <a href="templates/contact.html">Careers</a>
+            </nav>
+        </div> 
+
+    </div>
+
+    <small>
+        Copyright C 2026 - 
+        <a href="mailto:manelocana.dev@gmail.com">manelocana.dev@gmail.com</a>
+    </small>
+    
+</footer>
+
+</body>
+</html>
